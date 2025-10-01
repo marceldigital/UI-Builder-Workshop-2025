@@ -21,3 +21,6 @@ This is where the models are stored which we will be using in the database and t
 
 ### UIBuilderWorkshop.Web
 This is the web application which will house any View changes which we need to add.
+
+## End Result
+Got stuck or just want to see the end result? Checkout the `end` branch which has all of the source files from this workshop.
