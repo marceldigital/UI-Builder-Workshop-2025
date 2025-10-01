@@ -1,9 +1,12 @@
+using UIBuilderWorkshop.Core.Configuration;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()
     .AddWebsite()
     .AddComposers()
+    .AddWorkshopUIBuilder()
     .Build();
 
 WebApplication app = builder.Build();

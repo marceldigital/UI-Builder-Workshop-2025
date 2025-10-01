@@ -1,0 +1,18 @@
+﻿@using UIBuilderWorkshop.Data.Models
+@model Umbraco.UIBuilder.Web.Models.FieldViewContext
+@{
+    if (Model.Entity is not Conference conference) return;
+
+    var length = conference.EndDate.Date - conference.StartDate.Date;
+    var days = length.Days + 1;
+}
+
+@if (days == 1)
+{
+    <uui-tag look="secondary">1 day</uui-tag>
+}
+else
+{
+    var color = days > 2 ? "danger" : "default";
+    <uui-tag look="primary" color="@color">@days days</uui-tag>
+}

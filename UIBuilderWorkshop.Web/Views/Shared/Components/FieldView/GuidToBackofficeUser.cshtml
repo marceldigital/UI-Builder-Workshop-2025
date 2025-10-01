@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Core.Services
+@inject IUserService userService
+@model Umbraco.UIBuilder.Web.Models.FieldViewContext
+
+@{
+    var targetName = string.Empty;
+    if (Model.PropertyValue is string stringValue && Guid.TryParse(stringValue, out var guid)) {
+        var user = await userService.GetAsync(guid);
+        if (user != null) {
+            targetName = user.Name;
+        }
+    }
+}
+
+@targetName

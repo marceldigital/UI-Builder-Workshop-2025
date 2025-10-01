@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms.Core" Version="16.2.0" />
     <PackageReference Include="Umbraco.Cms.Infrastructure" Version="16.2.0" />
+    <PackageReference Include="Umbraco.UIBuilder.Startup" Version="16.0.4" />
   </ItemGroup>
 
   <ItemGroup>
