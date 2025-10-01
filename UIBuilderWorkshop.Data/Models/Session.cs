@@ -1,4 +1,5 @@
 ﻿using NPoco;
+using UIBuilderWorkshop.Data.Enums;
 using Umbraco.Cms.Infrastructure.Persistence.DatabaseAnnotations;
 
 namespace UIBuilderWorkshop.Data.Models;
@@ -30,6 +31,11 @@ public class Session : ModelBase
     /// Gets or sets the end time of the session.
     /// </summary>
     public DateTime EndTime { get; set; }
+
+    /// <summary>
+    /// Gets or sets the level of the session (e.g., Beginner, Intermediate, Advanced).
+    /// </summary>
+    public int Level { get; set; } = (int)SessionLevel.Beginner;
 
     /// <summary>
     /// Gets or sets the unique identifier for the conference.
