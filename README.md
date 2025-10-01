@@ -5,9 +5,9 @@ This workshop is split into lessons which build on eachother.
 - [Lesson 1: Installation](docs/lesson-1.md)
 - [Lesson 2: Initial Setup and First Section](docs/lesson-2.md)
 - [Lesson 3: Scaffolding Our First Collection](docs/lesson-3.md)
-- [Lesson 4: Lesson 4: CRUD Entities](docs/lesson-4.md)
+- [Lesson 4: CRUD Entities](docs/lesson-4.md)
 - [Lesson 5: Creating Child Collections](docs/lesson-5.md)
-- [Lesson 6: Lesson 6: Value Mappers](docs/lesson-6.md)
+- [Lesson 6: Value Mappers](docs/lesson-6.md)
 - [Lesson 7: Notification Handlers](docs/lesson-7.md)
 
 ## Solution Setup
