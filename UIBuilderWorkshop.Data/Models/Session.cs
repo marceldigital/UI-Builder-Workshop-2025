@@ -18,6 +18,7 @@ public class Session : ModelBase
     /// <summary>
     /// Gets or sets the description of the session.
     /// </summary>
+    [SpecialDbType(SpecialDbTypes.NVARCHARMAX)]
     public required string Description { get; set; }
 
     /// <summary>

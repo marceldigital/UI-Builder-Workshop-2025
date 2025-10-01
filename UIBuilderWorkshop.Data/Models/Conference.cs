@@ -1,4 +1,5 @@
 ﻿using NPoco;
+using Umbraco.Cms.Infrastructure.Persistence.DatabaseAnnotations;
 
 namespace UIBuilderWorkshop.Data.Models;
 
@@ -17,6 +18,7 @@ public class Conference : ModelBase
     /// <summary>
     /// Gets or sets the description of the conference.
     /// </summary>
+    [SpecialDbType(SpecialDbTypes.NVARCHARMAX)]
     public required string Description { get; set; }
 
     /// <summary>
