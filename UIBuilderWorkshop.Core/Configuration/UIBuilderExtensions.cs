@@ -165,7 +165,7 @@ public static class UIBuilderExtensions
                                                         "icon-user",
                                                         collectionConfiguration =>
                                                         {
-                                                            collectionConfiguration.SetNameFormat(x => $"{x.LastName} {x.FirstName}");
+                                                            collectionConfiguration.SetNameFormat(x => $"{x.LastName}, {x.FirstName}");
                                                             collectionConfiguration.SetSortProperty(x => x.LastName);
                                                             collectionConfiguration.AddAllDataView();
                                                             collectionConfiguration.AddSearchableProperty(x => x.LastName, SearchExpressionPattern.StartsWith);
