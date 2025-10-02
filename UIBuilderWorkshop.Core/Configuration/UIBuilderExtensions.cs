@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using UIBuilderWorkshop.Core.ActionFilters;
 using UIBuilderWorkshop.Core.Handlers;
 using UIBuilderWorkshop.Core.Validators;
 using UIBuilderWorkshop.Core.ValueMappers;
@@ -21,6 +22,8 @@ public static class UIBuilderExtensions
         umbracoBuilder.Services.AddSingleton<IBusinessRuleValidator<Conference>, EnsureConferenceStartDateBeforeEndValidator>();
         umbracoBuilder.Services.AddSingleton<IBusinessRuleValidator<Session>, EnsureSessionStartInConferenceDatesValidator>();
         umbracoBuilder.Services.AddSingleton<IBusinessRuleValidator<Session>, EnsureSessionEndInConferenceDatesValidator>();
+
+        umbracoBuilder.Services.AddControllersWithViews(options => options.Filters.Add<ModifyEntityEditModelNameActionFilter>());
 
         umbracoBuilder.AddUIBuilder(configuration =>
         {
@@ -181,6 +184,24 @@ public static class UIBuilderExtensions
                                                                 {
                                                                     tabConfigurtion.AddFieldset("General", fieldsetConfiguration =>
                                                                     {
+                                                                        fieldsetConfiguration.AddField(x => x.FirstName, fieldConfiguration =>
+                                                                        {
+                                                                            fieldConfiguration.SetDescription("The first name of the speaker.");
+                                                                        });
+
+                                                                        fieldsetConfiguration.AddField(x => x.LastName, fieldConfiguration =>
+                                                                        {
+                                                                            fieldConfiguration.SetDescription("The last name of the speaker.");
+                                                                        });
+
+                                                                        fieldsetConfiguration.AddField(x => x.Company, fieldConfiguration =>
+                                                                        {
+                                                                            fieldConfiguration.SetDescription("The company the speaker works for.");
+                                                                        });
+                                                                    });
+
+                                                                    tabConfigurtion.AddFieldset("Additional Information", fieldsetConfiguration =>
+                                                                    {
                                                                         fieldsetConfiguration.AddField(x => x.Bio, fieldConfiguration =>
                                                                         {
                                                                             fieldConfiguration.SetDataType("Richtext editor");
@@ -189,18 +210,10 @@ public static class UIBuilderExtensions
                                                                             fieldConfiguration.MakeRequired();
                                                                         });
 
-                                                                        fieldsetConfiguration.AddField(x => x.Company, fieldConfiguration =>
-                                                                        {
-                                                                            fieldConfiguration.SetDataType("Textstring");
-                                                                            fieldConfiguration.SetDescription("The company the speaker works for.");
-                                                                        });
-
                                                                         fieldsetConfiguration.AddField(x => x.TwitterHandle!, fieldConfiguration =>
                                                                         {
-                                                                            fieldConfiguration.SetDataType("Textstring");
                                                                             fieldConfiguration.SetDescription("The Twitter handle of the speaker.");
                                                                         });
-
                                                                     });
                                                                 });
                                                             });
