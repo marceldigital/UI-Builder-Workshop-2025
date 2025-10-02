@@ -9,6 +9,7 @@ This workshop is split into lessons which build on eachother.
 - [Lesson 5: Creating Child Collections](docs/lesson-5.md)
 - [Lesson 6: Value Mappers](docs/lesson-6.md)
 - [Lesson 7: Notification Handlers](docs/lesson-7.md)
+- [Lesson 8: Creating a Custom Repository](docs/lesson-8.md)
 
 ## Solution Setup
 The solution is split into 3 projects. When run for the first time the nessesary tables and data should be created for you.
