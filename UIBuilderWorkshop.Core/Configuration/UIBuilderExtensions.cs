@@ -1,8 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using UIBuilderWorkshop.Core.ActionFilters;
 using UIBuilderWorkshop.Core.Handlers;
+using UIBuilderWorkshop.Core.Repositories;
 using UIBuilderWorkshop.Core.Validators;
 using UIBuilderWorkshop.Core.ValueMappers;
+using UIBuilderWorkshop.Data.EntityFramework;
 using UIBuilderWorkshop.Data.Enums;
 using UIBuilderWorkshop.Data.Models;
 using Umbraco.Cms.Core.DependencyInjection;
@@ -16,14 +20,20 @@ public static class UIBuilderExtensions
 {
     public static IUmbracoBuilder AddWorkshopUIBuilder(this IUmbracoBuilder umbracoBuilder)
     {
+        // Add Notification Handlers
         umbracoBuilder.AddNotificationHandler<EntitySavingNotification, AddCreatedByOnSaveHandler>();
         umbracoBuilder.AddNotificationHandler<EntitySavingNotification, BusinessRuleHandler>();
 
+        // Add Business Rule Services
         umbracoBuilder.Services.AddSingleton<IBusinessRuleValidator<Conference>, EnsureConferenceStartDateBeforeEndValidator>();
         umbracoBuilder.Services.AddSingleton<IBusinessRuleValidator<Session>, EnsureSessionStartInConferenceDatesValidator>();
         umbracoBuilder.Services.AddSingleton<IBusinessRuleValidator<Session>, EnsureSessionEndInConferenceDatesValidator>();
 
+        // Add Action Filter to Swap Name
         umbracoBuilder.Services.AddControllersWithViews(options => options.Filters.Add<ModifyEntityEditModelNameActionFilter>());
+
+        // Add EF Core Repository for optional use
+        umbracoBuilder.Services.AddDbContext<EntityFrameworkContext>(options => options.UseSqlServer(umbracoBuilder.Config.GetConnectionString("umbracoDbDSN")));
 
         umbracoBuilder.AddUIBuilder(configuration =>
         {
@@ -168,6 +178,9 @@ public static class UIBuilderExtensions
                                                         "icon-user",
                                                         collectionConfiguration =>
                                                         {
+                                                            // Optionally change repository to EF Core
+                                                            //collectionConfiguration.SetRepositoryType<EntityFrameworkRepository<Speaker>>();
+
                                                             collectionConfiguration.SetNameFormat(x => $"{x.LastName}, {x.FirstName}");
                                                             collectionConfiguration.SetSortProperty(x => x.LastName);
                                                             collectionConfiguration.AddAllDataView();
