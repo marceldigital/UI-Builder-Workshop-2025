@@ -5,9 +5,9 @@ This workshop is split into lessons which build on eachother.
 - [Lesson 1: Installation](docs/lesson-1.md)
 - [Lesson 2: Initial Setup and First Section](docs/lesson-2.md)
 - [Lesson 3: Scaffolding Our First Collection](docs/lesson-3.md)
-- [Lesson 4: Lesson 4: CRUD Entities](docs/lesson-4.md)
+- [Lesson 4: CRUD Entities](docs/lesson-4.md)
 - [Lesson 5: Creating Child Collections](docs/lesson-5.md)
-- [Lesson 6: Lesson 6: Value Mappers](docs/lesson-6.md)
+- [Lesson 6: Value Mappers](docs/lesson-6.md)
 - [Lesson 7: Notification Handlers](docs/lesson-7.md)
 
 ## Solution Setup
@@ -21,3 +21,6 @@ This is where the models are stored which we will be using in the database and t
 
 ### UIBuilderWorkshop.Web
 This is the web application which will house any View changes which we need to add.
+
+## End Result
+Got stuck or just want to see the end result? Checkout the `end` branch which has all of the source files from this workshop.
