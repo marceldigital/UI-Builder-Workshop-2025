@@ -1,4 +1,4 @@
-# Creating a Custom Repository
+# Lesson 8: Creating a Custom Repository
 Often times you don't have a choice in how you access the data. By default UI Builder uses NPOCO to access the database and give you the entites back.
 
 Luckly UI Builder lets you swap out the engine which is quering the data by way of the `Repository<EntityType, IdType>` abstract class. To demonstrate this we will be making a Entity Framework flavor of this repository.
@@ -56,7 +56,7 @@ internal class EntityFrameworkRepository<TEntityType> : Repository<TEntityType, 
 
 ```
 
-We will end up with somethink like the above which gives us the extension points we need to gather the data for the repository. Fill in the implementations with the following leveging the existing Entity Framework context from the `Data` project.
+We will end up with something like the above which gives us the extension points we need to gather the data for the repository. Fill in the implementations with the following leveging the existing Entity Framework context from the `Data` project.
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
